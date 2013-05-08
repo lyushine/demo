@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>FlightIndex</title>
+<meta id="viewport" name="viewport" content="target-densitydpi=medium-dpi, width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta content="telephone=no" name="format-detection" />
+<link rel="apple-touch-icon-precomposed" href="images/touch-icon-precomposed.png" />
+<link rel="stylesheet" media="all" href="styles/flightindex.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<script>
+$(document).ready(function () {
+	var flag = false;
+	$("ul.tab_flt li").bind('touchstart click', function (){
+		if (!flag) {
+			flag = true;
+			setTimeout(function(){ flag = false; }, 100);
+			$("ul.tab_flt li").attr("class", "");
+			this.className="current";
+			if($("ul.tab_flt li")[1].className=="current") {
+				$("#date_round").attr("style", "margin-left:0;opacity:1;");
+			}
+			else {
+				$("#date_round").attr("style", "margin-left:-25%;opacity:0;");
+			}
+		}
+		return false;
+	});
+});
+</script>
+</head>
+<body>
+	<header>
+		<a href="###" class="c_back" style="display:none;">返回</a>
+		<a href="###" class="c_home" style="display:none;">主页</a>
+		<h1>携程</h1>
+	</header>
+	<section class="wrap">
+		<ul class="tab_flt">
+			<li class="current">单程机票</li>
+			<li>往返机票</li>
+		</ul>
+		<ul class="search_flt">
+			<li>
+				<a href="###">
+					<label>出发机场</label>
+					<strong>上海</strong>
+				</a>
+				<a href="###">
+					<label>到达机场</label>
+					<strong>请选择</strong>
+				</a>
+			</li>
+			<li>
+				<a href="###">
+					<label>出发日期</label>
+					<date>
+						<span class="d_month"><em class="date_highlight">明天</em><br />03月</span>
+						<span class="d_day">01</span>
+					</date>
+				</a>
+				<a id="date_round" href="###">
+					<label>返回日期</label>
+					<date>
+						<span class="d_month"><em class="date_highlight">后天</em><br />03月</span>
+						<span class="d_day">02</span>
+					</date>
+				</a>
+			</li>
+		</ul>
+		<input type="submit" value="搜索" class="btn_search" />
+	</section>
+	<footer>
+		<a href="###">机票</a>
+		<a href="###">航班动态</a>
+		<a href="###">酒店预订</a>
+		<a href="###">个人中心</a>
+	</footer>
+</body>
+</html>

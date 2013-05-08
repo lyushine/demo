@@ -1,0 +1,39 @@
+html, body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, p, th, td, em, form, input,select, textarea, button, header, section, aside, footer { margin: 0; padding: 0; }
+body { min-width:320px; background:#f0f0f0; font-size:16px; font-family:Arial, Microsoft Yahei; -webkit-text-size-adjust:none; overflow-x:hidden; }
+ul, li { list-style:none; }
+img { border:none; }
+a { color:#000; text-decoration:none; }
+input, select, textarea { font-size:16px; font-family:Arial, Microsoft Yahei; -webkit-appearance:none; }
+.float_r { float: right; }
+dfn { font-style: normal; }
+.c_price { font-size:12px; color:#999; }
+.c_price strong { font-size:22px; color:#d10a00; vertical-align:-1px; }
+.c_price dfn { vertical-align:3px; }
+
+header { height:44px; background:#2180cd; color:#fff; }
+header h1 { height:44px; line-height:44px; padding:0 44px; text-align:center; font-size:24px; }
+.c_back, .c_home { display:inline-block; width:44px; height:44px; line-height:44px; text-align:center; }
+.c_back { float:left; }
+.c_home { float:right; }
+
+.wrap { padding:10px; }
+.tab_flt { background:-webkit-linear-gradient(top, #327fbe, #2f93e4); border:2px solid #4c82b4; border-radius:3px; overflow:hidden; }
+.tab_flt li { float:left; width:50%; height:40px; line-height:40px; border-radius:2px; font-size:18px; color:#0f61a5; text-shadow:0 1px 0 #62afef; text-align:center; cursor:pointer; }
+.tab_flt li.current { background:#fff; color:#666; text-shadow:none; -webkit-transition:all linear 200ms; }
+
+.search_flt { margin-top:10px; background:#fff; border:1px solid #c7d5e3; border-radius:5px; }
+.search_flt li { position:relative; height:80px; overflow:hidden; border-bottom:1px solid #c7d5e3; }
+.search_flt li:last-child { border-bottom:none; }
+.search_flt li:first-child:after { position:absolute; content:""; left:50%; top:50%; width:0; height:0; margin-top:-5px; margin-left:-3px; border-width:6px; border-style:solid; border-color:transparent transparent transparent #84a5c5; }
+.search_flt a { float:left; width:45%; height:80px; padding-left:5%; color:#333; -webkit-transform-style:preserve-3d; -webkit-transition:all linear 300ms; }
+.search_flt #date_round { margin-left:-25%; opacity:0; }
+.search_flt label { display:block; padding:12px 0 8px; font-size:14px; color:#666; }
+.search_flt strong { font-size:20px; }
+.search_flt .d_month { float:left; margin-right:5px; font-size:14px; line-height:14px; }
+.search_flt .d_month em { font-style:normal; }
+.search_flt .d_month .date_highlight { color:#f90; }
+.search_flt .d_day { font-size:32px; line-height:28px; }
+.btn_search { width:100%; margin-top:10px; padding:10px 0; background:#2180cd; border:none; border-radius:2px; font-size:20px; color:#fff; }
+
+footer { position:absolute; position:fixed; left:0; bottom:0; width:100%; height:44px; background:rgba(0,0,0,0.8); color:#fff; overflow:hidden; }
+footer a { float:left; width:25%; height:44px; line-height:44px; font-size:14px; color:#fff; text-align:center; }
