@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta id="viewport" name="viewport" content="target-densitydpi=medium-dpi, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+<script type="text/javascript" src="http://teamdf.com/jquery-plugins/list/jquery.list.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+    	$list = $('#list div.list-content');
+		$list.find('dt a.title').each(function(i){
+			$('#index').append('<div><a href="#" data-header="'+i+'">'+$(this).text()+'</a></div>');
+		});
+		$(document).on('click', '#index a', function(e){
+			e.preventDefault();
+			$list.list( 'scrollTo', $(this).attr('data-header'), 'slow' );
+		});
+        $list.list({ headerSelector : 'a.title' });
+    });
+</script>	
+<style type="text/css">
+html, body{ font-family: sans-serif; }
+body { font-size:16px; font-family:helvetica; -webkit-user-select:none; -webkit-text-size-adjust:none; }
+* { margin: 0; padding: 0; }
+ul, li { list-style:none; }
+a { color: #000; text-decoration: none; }
+
+header { position:fixed; left:0; width:100%; z-index:2; top:0; }
+.header { height:44px; background:#0762b6; border-top:1px solid #2a82cc; border-top-left-radius:3px; border-top-right-radius:3px; line-height:44px; color:#fff; }
+.header h1 { text-align:center; font-size:20px; text-shadow:0 1px 1px rgba(0,0,0,0.8); }
+.header a { color:#fff; text-decoration: none; }
+.icon-back { position:absolute; left:0; top:0; width:62px; height:44px; background:#0056a6; border-right:1px solid #094780; }
+.icon-back:after { position:absolute; content:""; top:0; right:-2px; width:1px; height:44px; border-right:1px solid #1372c9; }
+.icon-back:before { position:absolute; content:""; width:10px; height:10px; margin-left:28px; margin-top:14px; border-bottom:3px solid #fff; border-left:3px solid #fff; -webkit-transform:rotate(45deg); -o-transform:rotate(45deg); }
+.searchbox { position:relative; height:28px; padding:6px; background-color:#c4ccd2; background-image:-webkit-gradient(linear, left top, left bottom, from(#d6dde2), to(#b2bdc4)); border-bottom:1px solid #81929f; }
+.searchbox:before { position:absolute; content:""; left:16px; top:13px; width:8px; height:8px; border:2px solid #90959b; border-radius:10px; }
+.searchbox:after { position:absolute; content:""; left:24px; top:24px; width:5px; height:2px; background:#90959b; -webkit-transform:rotate(45deg); }
+.searchbox input { width:100%; height:28px; text-indent:26px; background:#fff; border:1px solid #babec0; border-radius:14px; font-size:14px; -webkit-appearance:none; }
+.tab-city { height:30px; padding:10px 38px; background:#fff; }
+.tab-city li { float:left; width:120px; height:28px; line-height:28px; margin-right:-1px; background-color:#e5e6e8; background-image:-webkit-gradient(linear, left top, left bottom, from(#f6f6f7), to(#d1d3d7)); border:1px solid #b2bdc2; box-shadow:inset 0 1px 1px rgba(255,255,255,1); color:#333; text-align:center; }
+.tab-city li:first-child { border-top-left-radius: 3px; border-bottom-left-radius: 3px; }
+.tab-city li:last-child { border-top-right-radius: 3px; border-bottom-right-radius: 3px; }
+.tab-city .current { position:relative; background-color:#81addc; background-image:-webkit-gradient(linear, left top, left bottom, from(#6593be), to(#96b6da)); border-color:#3768a4 #5782b8 #73a0cf; box-shadow:inset 0 1px 3px rgba(0,0,0,0.3); color:#fff; }
+
+#index { position: absolute; right: 0; top: 150px; min-height: 250px; z-index: 1000; }
+#index a { display: block; padding: 3px 10px; font-size: 9px; line-height: 6px; text-align: center; color: #6f7781; font-weight: bold; text-transform: uppercase; cursor: pointer; }
+
+.list { width: 100%; margin-top:136px; overflow-x: hidden; overflow-y: scroll; -webkit-overflow-scrolling:touch; }
+.list-content { height: 368px; background: #fff; }
+.list-content .title { display:block; height:20px; line-height:20px; text-indent: 10px; font-size: 16px; text-shadow:0 1px 1px rgba(0,0,0,0.8); background: rgba( 163, 175, 184, 0.85 ); color: white; font-weight: bold; text-transform: uppercase; border-top: 1px solid #a5b1ba; border-bottom: 1px solid #98a3aa; }
+.list-content dd a { padding: 6px 10px; display: block; border-bottom: 1px solid #e0e0e0; font-size:18px; text-transform: capitalize; }
+.list-content dd a:hover { background: #F3FAFF; border-color: #D5EBF9; }
+.list-content .selected { position:relative; color:#0056a6; }
+.list-content .selected:before { position:absolute; content:""; right:40px; top:10px; width:20px; height:20px; border-radius:50%; background:#0762b6; }
+.list-content .selected:after { position:absolute; content:""; right:44px; top:15px; width:8px; height:4px; border-left:4px solid #fff; border-bottom:4px solid #fff; -webkit-transform:rotate(-45deg); }
+.list-content dd:last-child { border-bottom: 0; }
+</style>
+</head>
+<body>
+	<header>
+		<div class="header">
+			<a href="###" class="icon-back"></a>
+			<h1>选择城市</h1>
+			<a href="tel:4000086666" class="icon-call"></a>
+			<a href="http://ctrip.com/" class="icon-home"></a>			
+		</div>
+		<div class="searchbox">
+			<input type="search" placeholder="中文/拼音/首字母/三字码" />
+		</div>
+		<ul class="tab-city">
+			<li class="current">国内城市</li>
+			<li>国际城市</li>
+		</ul>
+	</header>
+	
+	<div id="content">
+		<div id="index"></div>
+		<div id="list" class="list">
+			<div class="list-content">
+				<dl>
+					<dt><a class="title">热门</a></dt>
+					<dd><a href="#">北京</a></dd>
+					<dd><a href="#" class="selected">上海</a></dd>
+					<dd><a href="#">广州</a></dd>
+					<dd><a href="#">深圳</a></dd>
+				</dl>
+				<dl>
+					<dt><a class="title">A</a></dt>
+					<dd><a href="#">Adelaide</a></dd>
+					<dd><a href="#">Albany</a></dd>
+					<dd><a href="#">Albury</a></dd>
+					<dd><a href="#">Ararat</a></dd>
+					<dd><a href="#">Armidale</a></dd>
+				</dl>
+				
+				<dl>
+					<dt><a class="title">B</a></dt>
+					<dd><a href="#">Bairnsdale</a></dd>
+					<dd><a href="#">Ballarat</a></dd>
+					<dd><a href="#">Bathurst</a></dd>
+					<dd><a href="#">Benalla</a></dd>
+					<dd><a href="#">Bendigo</a></dd>
+					<dd><a href="#">Blue Mountains</a></dd>
+					<dd><a href="#">Brisbane</a></dd>
+					<dd><a href="#">Broken Hill</a></dd>
+					<dd><a href="#">Bunbury</a></dd>
+					<dd><a href="#">Bundaberg</a></dd>
+					<dd><a href="#">Burnie</a></dd>
+					<dd><a href="#">Busselton</a></dd>
+				</dl>
+				
+				<dl>
+					<dt><a class="title">C</a></dt>
+					<dd><a href="#">Cairns</a></dd>
+					<dd><a href="#">Caloundra</a></dd>
+					<dd><a href="#">Campbelltown</a></dd>
+					<dd><a href="#">Cessnock</a></dd>
+				</dl>
+				
+				<dl>
+					<dt><a class="title">D</a></dt>
+					<dd><a href="#">Dandenong</a></dd>
+					<dd><a href="#">Darwin</a></dd>
+					<dd><a href="#">Devonport</a></dd>
+					<dd><a href="#">Dubbo</a></dd>
+				</dl>
+				
+				<dl>
+					<dt><a class="title">E</a></dt>
+				</dl>
+					
+				<dl>
+					<dt><a class="title">F</a></dt>
+					<dd><a href="#">Frankston</a></dd>
+					<dd><a href="#">Fremantle</a></dd>
+				</dl>
+				
+				<dl>
+					<dt><a class="title">G</a></dt>
+					<dd><a href="#">Geelong</a></dd>
+					<dd><a href="#">Geraldton</a></dd>
+					<dd><a href="#">Gladstone</a></dd>
+					<dd><a href="#">Gold Coast</a></dd>
+					<dd><a href="#">Goulburn</a></dd>
+					<dd><a href="#">Grafton</a></dd>
+					<dd><a href="#">Gympie</a></dd>
+				</dl>
+				
+				<dl>
+					<dt><a class="title">H</a></dt>
+					<dd><a href="#">Hamilton</a></dd>
+					<dd><a href="#">Hervey Bay</a></dd>
+					<dd><a href="#">Hobart</a></dd>
+					<dd><a href="#">Horsham</a></dd>
+				</dl>
+				
+				<dl>
+					<dt><a class="title">I</a></dt>
+					<dd><a href="#">Ipswich</a></dd>
+				</dl>
+				
+				<dl>
+					<dt><a class="title">J</a></dt>
+					<dd><a href="#">Joondalup</a></dd>
+				</dl>
+				
+				<dl>
+					<dt><a class="title">K</a></dt>
+					<dd><a href="#">Kalgoorlie</a></dd>
+				</dl>
+				
+				<dl>
+					<dt><a class="title">L</a></dt>
+					<dd><a href="#">Launceston</a></dd>
+					<dd><a href="#">Lithgow</a></dd>
+					<dd><a href="#">Liverpool</a></dd>
+					<dd><a href="#">Logan City</a></dd>	
+				</dl>
+				
+				<dl>
+					<dt><a class="title">M</a></dt>
+					<dd><a href="#">Mackay</a></dd>
+					<dd><a href="#">Mandurah</a></dd>
+					<dd><a href="#">Maryborough</a></dd>
+					<dd><a href="#">Melbourne</a></dd>
+					<dd><a href="#">Melton</a></dd>
+					<dd><a href="#">Mildura</a></dd>
+					<dd><a href="#">Moe</a></dd>
+					<dd><a href="#">Morwell</a></dd>
+					<dd><a href="#">Mount Barker</a></dd>
+					<dd><a href="#">Mount Gambier</a></dd>
+					<dd><a href="#">Mount Isa</a></dd>
+					<dd><a href="#">Murray Bridge</a></dd>
+				</dl>
+				
+				<dl>
+					<dt><a class="title">N</a></dt>
+					<dd><a href="#">Newcastle</a></dd>
+				</dl>
+				
+				<dl>
+					<dt><a class="title">O</a></dt>
+					<dd><a href="#">Orange</a></dd>
+				</dl>
+				
+				<dl>
+					<dt><a class="title">P</a></dt>
+					<dd><a href="#">Palmerston</a></dd>
+					<dd><a href="#">Parramatta</a></dd>
+					<dd><a href="#">Penrith</a></dd>
+					<dd><a href="#">Perth</a></dd>
+					<dd><a href="#">Port Adelaide</a></dd>
+					<dd><a href="#">Port Augusta</a></dd>
+					<dd><a href="#">Port Pirie</a></dd>
+					<dd><a href="#">Port Lincoln</a></dd>
+				</dl>
+				
+				<dl>
+					<dt><a class="title">Q</a></dt>
+					<dd><a href="#">Queanbeyan</a></dd>
+				</dl>
+				
+				<dl>
+					<dt><a class="title">R</a></dt>
+					<dd><a href="#">Rockhampton</a></dd>
+					<dd><a href="#">Rockingham</a></dd>
+				</dl>
+				
+				<dl>
+					<dt><a class="title">S</a></dt>
+					<dd><a href="#">Sale</a></dd>
+					<dd><a href="#">Shepparton</a></dd>
+					<dd><a href="#">Sunshine Coast</a></dd>
+					<dd><a href="#">Surfers Paradise</a></dd>
+					<dd><a href="#">Swan Hill</a></dd>
+					<dd><a href="#">Sydney</a></dd>
+				</dl>
+				
+				<dl>
+					<dt><a class="title">T</a></dt>
+					<dd><a href="#">Tamworth</a></dd>
+					<dd><a href="#">Toowoomba</a></dd>
+					<dd><a href="#">Townsville</a></dd>
+					<dd><a href="#">Traralgon</a></dd>
+				</dl>
+				
+				<dl>
+					<dt><a class="title">U</a></dt>
+				</dl>
+					
+				<dl>
+					<dt><a class="title">V</a></dt>
+					<dd><a href="#">Victor Harbor</a></dd>
+				</dl>
+				
+				<dl>
+					<dt><a class="title">W</a></dt>
+					<dd><a href="#">Wagga Wagga</a></dd>
+					<dd><a href="#">Wangaratta</a></dd>
+					<dd><a href="#">Warrnambool</a></dd>
+					<dd><a href="#">Whyalla</a></dd>
+					<dd><a href="#">Wodonga</a></dd>
+					<dd><a href="#">Wollongong</a></dd>
+				</dl>
+				
+				<dl>
+					<dt><a class="title">X</a></dt>
+				</dl>
+				<dl>
+					<dt><a class="title">Y</a></dt>
+				</dl>
+				<dl>
+					<dt><a class="title">Z</a></dt>
+				</dl>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
