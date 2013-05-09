@@ -1,7 +1,7 @@
 html, body, div, span, h1, h2, h3, h4, h5, h6, p, blockquote, pre, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, footer, header, section, summary, time, mark { margin:0; padding:0; }
 ul, li { list-style:none; }
 body { font-size:16px; font-family:helvetica; -webkit-user-select:none; -webkit-text-size-adjust:none; }
-a { color: #000; text-decoration: none; -webkit-tap-highlight-color:rgba(0,0,0,0); }
+a { color: #000; text-decoration: none; }
 
 header { position:fixed; left:0; width:100%; z-index:2; top:0; }
 .header { height:44px; background:#0762b6; border-top:1px solid #2a82cc; border-top-left-radius:3px; border-top-right-radius:3px; line-height:44px; color:#fff; }
@@ -26,8 +26,7 @@ header { position:fixed; left:0; width:100%; z-index:2; top:0; }
 .list { width: 100%; margin-top:136px; overflow-x: hidden; overflow-y: scroll; -webkit-overflow-scrolling:touch; }
 .list-content { height: 368px; background: #fff; }
 .list-content .title { display:block; height:20px; line-height:20px; text-indent: 10px; font-size: 16px; text-shadow:0 1px 1px rgba(0,0,0,0.8); background: rgba(163, 175, 184, 0.85); color: white; font-weight: bold; text-transform: uppercase; border-top: 1px solid #a5b1ba; border-bottom: 1px solid #98a3aa; }
-.list-content dd a { padding: 6px 10px; display: block; border-bottom: 1px solid #e0e0e0; font-size:18px; text-transform: capitalize; -webkit-tap-highlight-color:rgba(243,250,255,1); }
-/*.list-content dd a:hover { background: #F3FAFF; }*/
+.list-content dd a { padding: 6px 10px; display: block; border-bottom: 1px solid #e0e0e0; font-size:18px; text-transform: capitalize; }
 .list-content .selected { position:relative; color:#0056a6; }
 .list-content .selected:before { position:absolute; content:""; right:40px; top:10px; width:20px; height:20px; border-radius:50%; background:#0762b6; }
 .list-content .selected:after { position:absolute; content:""; right:44px; top:15px; width:8px; height:4px; border-left:4px solid #fff; border-bottom:4px solid #fff; -webkit-transform:rotate(-45deg); }
