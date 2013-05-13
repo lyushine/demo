@@ -7,8 +7,8 @@
   var GM = google.maps;
 
   var app = {
-    initialize: function(){
-      // Init Map
+    initialize: function (){
+      // Init map
       var mapCanvas = document.getElementById('map-canvas'),
           mapOptions = {
             center: new GM.LatLng(-34.397, 150.644),
@@ -17,42 +17,61 @@
           };
       window.map = new GM.Map(mapCanvas, mapOptions);
 
-      app.initMarkers(10);
+      // Init markers
+      GM.event.addListenerOnce(map, 'idle', function (){
+        app.initMarkers(20);
+      });
 
-      // change style on zoom
+      // Change markers style on zoom
       GM.event.addListener(map, 'zoom_changed', function (){
-        var zoomLevel = this.getZoom();
-        console.log(zoomLevel);
-        if (zoomLevel) {
-          app.markers.forEach(function (mk, index){
-            updateMarkerIcon(mk);
-          });
-        }
+        app.markers.forEach(function (mk, index){
+          updateMarkerIcon(mk);
+        });
       });
     },
 
-    initMarkers: function(num){
+    initMarkers: function (num){
       app.markers = [];
 
-//      for(var i = num, mk; i--;){
-//        mk = new GM.Marker({
-//          position: '',
-//          dragable: true,
-//          optimized: false
-//        })
-//      }
+      // Auto Generate Markers by num
+      for (var i = num; i--;) {
+        setTimeout(function (){
+          app.genMarker(app.randomLatLng());
+        }, 90 * i);
+      }
 
+      // Create an Marker when click
       GM.event.addListener(map, 'click', function (e){
-        var marker = new GM.Marker({
-          position: e.latLng,
-          draggable: true,
-          optimized: false
-        });
-
-        app.markers.push(marker);
-        updateMarkerIcon(marker);
-        marker.setMap(map);
+        var mk = app.genMarker(e.latLng);
       });
+    },
+
+    // Create an Marker by GM.latLng
+    genMarker: function (latLng){
+      var mk = new GM.Marker({
+        title: latLng.toString(),
+        position: latLng,
+        draggable: true,
+        animation: GM.Animation.DROP,
+        optimized: false
+      });
+
+      app.markers.push(mk);
+      updateMarkerIcon(mk);
+      mk.setMap(map);
+
+      return mk;
+    },
+
+    // Generate a random GM.LatLng object inside the viewport
+    randomLatLng: function (){
+      var bounds = map.getBounds();
+      var ne = bounds.getNorthEast(),
+          sw = bounds.getSouthWest();
+      return new GM.LatLng(
+          Math.random() * ( ne.lat() - sw.lat() ) * 0.9 + sw.lat(),
+          Math.random() * ( ne.lng() - sw.lng() ) * 1.2 + sw.lng()
+      );
     }
   };
 
