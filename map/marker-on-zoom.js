@@ -80,10 +80,10 @@
   // Animation
   function updateMarkerIcon(marker){
     var icons = {
-      mari: new GM.MarkerImage('images/marijuana.png', null, null, null, new GM.Size(16, 18)),
-      star: 'images/star.png'
+      geo: new GM.MarkerImage('images/geo-s.png', null, null, null, new GM.Size(33, 52)),
+      hotelname: 'images/hotelname.png'
     };
-    var type = window.map.getZoom() < 9 ? 'mari' : 'star';
+    var type = window.map.getZoom() < 12 ? 'geo' : 'hotelname';
     marker.setIcon(icons[type]);
   }
 
