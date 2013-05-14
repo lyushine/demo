@@ -80,7 +80,7 @@
   // Animation
   function updateMarkerIcon(marker){
     var icons = {
-      geo: new GM.MarkerImage('images/geo.png', null, null, null, new GM.Size(33, 52)),
+      geo: new GM.MarkerImage('images/geo.png', null, null, null, new GM.Size(31, 53)),
       hotelname: new GM.MarkerImage('images/hotelname.png', null, null, null, new GM.Size(126, 85))
     };
     var type = window.map.getZoom() < 12 ? 'geo' : 'hotelname';
