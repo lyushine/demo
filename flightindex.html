@@ -14,9 +14,7 @@
 $(document).ready(function () {
 	var flag = false;
 	$("ul.tab_flt li").bind('touchstart click', function (){
-		if (!flag) {
-			flag = true;
-			setTimeout(function(){ flag = false; }, 100);
+			setTimeout(function(){}, 100);
 			$("ul.tab_flt li").attr("class", "");
 			this.className="current";
 			if($("ul.tab_flt li")[1].className=="current") {
@@ -25,7 +23,6 @@ $(document).ready(function () {
 			else {
 				$("#date_round").attr("style", "margin-left:-25%;opacity:0;");
 			}
-		}
 		return false;
 	});
 });
