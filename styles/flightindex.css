@@ -19,8 +19,12 @@ header h1 { height:44px; line-height:44px; padding:0 44px; text-align:center; fo
 .wrap { padding:10px; }
 .tab_flt { background:-webkit-linear-gradient(top, #327fbe, #2f93e4); border:2px solid #4c82b4; border-radius:3px; overflow:hidden; }
 .tab_flt li { float:left; width:50%; height:40px; line-height:40px; border-radius:2px; font-size:18px; color:#0f61a5; text-shadow:0 1px 0 #62afef; text-align:center; cursor:pointer; }
-.tab_flt li.current { background:#fff; color:#666; text-shadow:none; -webkit-transition:all linear 200ms; }
-
+.tab_flt li.current {   background: -moz-linear-gradient(top, #094d7e 0%, #0b558a 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#094d7e), color-stop(100%,#0b558a)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #094d7e 0%,#0b558a 100%); /* Chrome10+,Safari5.1+ */ color:#666; text-shadow:none; -webkit-transition:all linear 200ms; }
+/*
+  我在这里加了一个 gradient 那个过渡动画的效果消失了，请问如何解决 by lyushine
+*/
 .search_flt { margin-top:10px; background:#fff; border:1px solid #c7d5e3; border-radius:5px; }
 .search_flt li { position:relative; height:80px; overflow:hidden; border-bottom:1px solid #c7d5e3; }
 .search_flt li:last-child { border-bottom:none; }
